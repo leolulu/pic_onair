@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+	<script src="/public/lazyload.min.js"></script>
+	<style type="text/css">
+	#app{
+		font-size: 0;
+	}
+	img{
+		display: block;
+	}
+	body{
+		margin: 0;
+	}
+	.loading{
+		animation: shingshing 1s infinite alternate linear backwards ;
+	}
+	.error{
+		border: 10px dotted red;
+	}
+	@keyframes shingshing
+	{
+		0%{border-top: 10px dotted blue;border-bottom: 10px dotted blue;}
+		50%{border-top: 10px dashed green;border-bottom: 10px dashed green;}
+		100%{border-top: 10px dotted yellow;border-bottom: 10px dotted yellow;}
+	}
+	#back{
+		text-align: right;
+		display: block;
+		font-size: 300%;
+	}
+</style>
+</head>
+<body>
+	<div id="app">
+		{{each file_list}}
+		<!-- <img data-original="{{$value}}" alt="{{$value}}"  class="lazy" title='{{$value}}' width="100%"> -->
+		<img data-src="/static/OneDrive/图片/{{dirname}}/{{$value}}" alt="{{$value}}"  class="lazy" width="100%">
+		{{/each}}
+	</div>
+	<a href="/list" id="back">[返回列表]</a>
+
+	<script type="text/javascript">
+		var myLazyLoad = new LazyLoad({
+			elements_selector: ".lazy",
+			placeholder : "/public/81a47055f047402ddb696454c30d4f3c.gif",
+			threshold:4000,
+			effects:"fadeIn"
+		});
+	</script>
+</body>
+</html>

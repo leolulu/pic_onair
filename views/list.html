@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>list</title>
+	<style type="text/css">
+		h1{
+			font-size: 80px;
+			text-align: center;
+			margin: 0;
+			/*margin-top: -20px;*/
+			animation: shingshing 15ms infinite alternate linear backwards ;
+		}
+		.con{
+			text-align: center;
+		}
+		body{
+			background-color: #FCFCFC;
+		}
+		@keyframes shingshing
+	{
+		0%{color:hotpink;transform: rotateZ(-10deg);}
+		50%{color:orange;transform: rotateZ(0deg);}
+		100%{color:yellowgreen;transform: rotateZ(10deg);}
+	}
+	</style>
+</head>
+<body>
+	<span>{{someinfo}}</span>
+	<div class="con">
+	<img src="/public/38925944cc03d0429f7ea13999909a1c.gif" alt="grip" width="50%">
+	</div>
+	<h1>L I S T</h1>	
+	<ul>
+		{{each file_list}}
+		<li>
+		<a href="/view?dirname={{$value}}">{{$value}}</a> <a href="/del?addr={{$value}}">[x]</a>
+	</li>
+		{{/each}}
+	</ul>
+</body>
+</html>
